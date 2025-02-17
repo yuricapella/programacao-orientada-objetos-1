@@ -1,0 +1,146 @@
+SOLID
+Single Responsability Principle
+Responsabilidade unica
+Faz uma coisa, coerencia
+Só muda por uma razão/contexto
+
+
+Open Close Principle
+As classes são fechadas para modificação e abertas para extensão
+
+
+Liskov Principle
+Um filho que não consegue substituir o pai, não deveria implementar o pai ou herdar
+
+
+Interface Segregation Principle
+Se uma classe não tem todos os comportamentos do pai, não deveria implementa-la e sim segregar.
+
+
+Coesão e Acoplamento, dois conceitos do POO
+
+Um é um antonimo do outro.
+
+Alta coesão e baixo acoplamento. Não é possivel zerar acoplamento, pois devemos fazer o minimo, como por exemplo, chamar uma classe em outra classe.
+Chamar a classe e a função, mas o código dessa outra classe só está sendo chamado, acoplamento minimo.
+
+Acoplamento = dependencia
+Pode depender de uma classe chamar outra
+Mas não pode depender de varios contextos, dentro de uma mesma classe.
+
+Mais especificas = coesão
++coesão
+-acoplamento
+
+poo = Encapsulamento, Herança, Polimorfismo, Abstração
+------
+DBA foi feito em open close do solid, criou uma nova classe e nao mexeu no pai Funcionario.
+Apenas criou DBA e fez suas funções.
+
+---------
+protect = os filhos podem acessar (mesmo fora do pacote) e todos os arquivos dentro do mesmo pacote podem acessar.
+private = o mais restrito, só a própria classe pode acessar.
+publica = todos acessam
+default = a propria classe pode ver e os filhos que estão dentro do mesmo pacote, resumindo, só quem está no pacote.
+
+public > protected > default > private
+
+é bom deixar as variáveis private e fazer um metodo publico para pega-lo pois é uma medida de segurança, pode colocar verificações
+no metodo, que só a variavel nao teria
+
+public String   getNome(String acesso){
+    if (acesso.equals"ADMIN"){
+        return nome + " asdfiodsjaf"
+    }else{
+        return null
+    }
+}
+
+throw new - exception
+ele joga uma exceção para algum erro e quebra o código
+é como se fosse um return
+se colocar algo abaixo da exceção, não será executado.
+
+public void setCargo(String novoCargo,String tipoDoFuncionario) throws Exception {
+        if(tipoDoFuncionario.equals("Desenvolvedor")){
+            var listaDeCargos = List.of("JUNIOR", "PLENO", "SENIOR");
+            if(listaDeCargos.contains(novoCargo)){
+                this.cargo = novoCargo;
+            }else{
+                throw new Exception("Cargo invalido: " + novoCargo + " para esse tipo de funcionario" );
+                print("nao será executado");
+            }
+        }
+    }
+
+essa função após setCargo() throws Exception,
+diz que ao inves do erro dar em setCargo, ele vai dar onde está sendo usado
+la no metodo main onde está sendo chamado com Scanner, ali deverá ser tratado.
+
+Scanner entrada = new Scanner(System.in);
+        boolean continuar = true;
+        while (continuar){
+
+            System.out.println("Digite o cargo do desenvolvedor: ");
+            String cargo = entrada.nextLine();
+
+            Funcionario dev = new Desenvolvedor();
+            try{
+                dev.setCargo(cargo,"Desenvolvedor");
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+
+Ai no caso dentro de try, setCargo solta uma exceção caso não digitar o Cargo Correto.
+ai com a exceção, vai entrar no catch,
+transforma o erro em string no console e o programa nao quebra.
+
+se colocar throws Exception no main, vai quebrar o servidor inteiro.
+
+Exception é o pai das exceções
+
+Para lançar Exceptions, tem que ser especifico e no final ser o geral, pai
+por causa do polimorfismo, os filhos se passam pelo pai.
+
+try{
+    String cargo = entrada.next();
+    System.out.println("Digite o salario do desenvolvedor: ");
+    double novoSalario = Double.parseDouble(entrada.next());
+
+    dev.setCargo(cargo,"Desenvolvedor");
+    System.out.println("Cargo alterado de desenvolvedor: "+dev.getCargo());
+}catch (NumberFormatException e){
+    System.out.println("ERRO: O salário deve ser apenas numeros.");
+    continue;
+}catch (Exception e){
+    System.out.println(e.getMessage());
+    continue;
+}catch (Throwable e){
+    System.out.println(e.getMessage());
+    continue;
+}
+
+se digitar novoSalario e cargo errado, a primeira exceção será em
+
+double novoSalario = Double.parseDouble(entrada.next());
+Pois Double.parseDouble, solta uma exceção primeiro
+
+Enquanto     dev.setCargo(cargo,"Desenvolvedor"); solta exceção só depois
+
+Mas como vi anteriormente, quando cai em uma exceção, nao roda o resto.
+Então não cai na segunda exceção
+
+List<String> listaDeNomes = new ArrayList<>();
+Porque consigo colocar <tipos> ?
+List<String>
+List<Integer>
+
+Dentro de List
+há List<E>, qualquer coisa que passar ele aceita, generics
+
+
+
+
+
+
+

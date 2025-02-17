@@ -1,0 +1,102 @@
+Para a classe public class Veiculo
+Não é necessario deixar ela normal, pois não queremos instancialo, não vamos criar veiculos que são só veiculos
+vamos criar somente carro ou moto. Veiculo é para ser apenas um modelo padrão que os dois vao usar.
+então podemos colocar public abstract class Veiculo.
+colocando abstract, a classe não pode ser instanciada. é um metodo de proteger.
+
+POLIMORFISMO:
+
+List<Veiculo> veiculosGerados = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            CodigosEmAula.Carro carro2 = new CodigosEmAula.Carro("vermelho", "fusca","CAR" + i, 1970, 2);
+            Moto moto2 = new Moto("vermelho","honda","MOT" + i,1981);
+            veiculosGerados.add(carro2);
+            veiculosGerados.add(moto2);
+        }
+        System.out.println("----------Veiculos Gerados----------");
+        MovimentacaoDeVeiculos.movimentar(veiculosGerados);
+
+Neste caso carro e moto estão sendo adicionados na lista Veiculos,
+Porque carro e moto são filhos de Veiculo, então eles também são
+considerados veiculos também.
+Polimorfismo é isso, os filhos serem identificados como o pai.
+O pai não se passa pelo filho, apenas o filho pelo pai.
+
+Veiculo veiculo1 = new Moto("vermelho","honda","MOT" + i,1981); pode
+Moto moto1 = new Veiculo -- não pode.
+
+O filho enxerga o pai, mas o pai não enxerga o filho.
+
+Polimorfismo é um objeto se passar pela classe super.
+
+Polimorfismo faz com que objetos diferentes que herdam
+de um mesmo objeto, sejam tratados iguais.
+
+se eu tenho uma regra de negocios, que tenho que lidar com varias
+classes diferentes que tem o mesmo comportamento,
+ e quero usa-los de forma unica.
+
+ Usar herança é muito dificil, é bom começar de maneira facil.
+ Primeiro começa fazendo classe carro, moto, caminhão
+ Quando começar a ver coisas se repetindo,
+ é bom centralizar em uma classe (veiculo)
+
+
+ Não tem como usar nenhum principio do solid, sem usar herança
+
+O que foi feito nos arquivos?
+
+Classes interligadas por herança:
+    Veiculo
+cor, ano,placa,modelo,velocidade
+mover()
+
+    CodigosEmAula.Carro
+qtdPortas
+ligar()
+desligar()
+
+    Moto
+temCapacete
+darPartida()
+
+MovimentarVeiculos
+movimentar(List<Veiculo> veiculos)
+
+
+Diagrama:
+Veiculos <--MovimentarVeiculos
+  |    |
+CodigosEmAula.Carro  Moto
+
+Diagrama de caso de uso, entidade relacionamento. São mais utilizados
+
+Entidade relacionamento, se usa quando está pensando no banco de dados.
+
+Hoje em dia o banco de dados fica por ultimo
+
+Geralmente se faz o caso de uso primeiro.
+
+
+    Veiculo
+cor, ano,placa,modelo,velocidade
+mover()
+
+    CodigosEmAula.Carro
+qtdPortas
+ligar()
+desligar()
+
+    Moto
+temCapacete
+darPartida()
+
+    Onibus
+temCatraca
+temSinalParada
+ligar()
+desligar()
+
+
+MovimentarVeiculos
+movimentar(List<Veiculo> veiculos)

@@ -1,0 +1,183 @@
+Antigamente era procedural, dentro da main, em métodos.
+
+Programação Orientada a Objeto
+Tudo no java é objeto.
+
+Classes: é o modelo ou esquema a partir do qual os objetos são criados.
+
+Classe funcionario, estou dizendo o que funcionario é ou deveria ser.
+
+Encapsulamento: os detalhes são internos á classe, que fornece métodos
+para interações externas.
+
+Objeto: é um exemplar (instância) de uma classe. Embora todos os objetos
+de uma classe possuam o mesmo comportamento, cada um possui seu próprio estado.
+Classe é a idealização enquanto o Objeto é a realização.
+Classe é a ideia e o Objeto é a criação da ideia.
+
+Comportamentos: Ações, as manipulações de um objeto descritas em uma classe.
+
+Estado: uma "fotografia" de um momento de objeto.
+
+Métodos: definem os comportamentos em uma classe.
+
+Interface/Classes Abstratas: contrato para a criação de uma classe.
+Define um conjunto de métodos que uma classe deve implementar.
+Não deveriam ter funções concretas.
+public interface Ave{
+    public void voar();
+    public void comer(String comida);
+    public void emitirSom();
+    public void botarOvo();
+
+    ideal é nomear com ações. botar,voar,comer,emitir
+    botaOvo poderia ser um atributo booleano.
+    que na boa pratica de empresas seria isBotaOvo
+}
+os metodos não tem corpo {} atributos dentro e o que fazer.
+Apenas nome e os parametros.
+
+ai criasse a classe Pelicano que implementa Ave
+public class Pelicano implements Ave {
+    public void voar(){
+        System.out.println("Pelicano voando");
+    }
+    public void comer(String comida){
+        System.out.println("Pelicano comendo "+comida);
+    }
+    public void emitirSom(){
+        System.out.println("Pelicano emitindo som");
+    }
+    public void botarOvo(){
+        System.out.println("Pelicano botando ovo");
+    }
+
+}
+
+Interface, conceitualmente é uma classe abstrata porém tem diferenças.
+classes abstratas não podem ser instanciadas, interface também não.
+Pessoa pessoa = new Pessoa(); não pode
+
+public abstract class Acoes
+é uma classe abstrata
+
+Interface não pode ter metodos concretos, implementados
+por baixo dos panos, os metodos de interface
+void voar();
+é public abstract void voar();
+
+Da para herdar de abstract e de interface também, os dois fazem a mesma coisa.
+
+A principal diferença é que abstrata só pode herdar de uma classe
+e interface pode herdar de varias interfaces.
+
+Classe abstrata, é oque uma classe é
+
+Interface, é oque uma classe faz
+Um pato pode herdar comportamentos de ave e de peixe
+pode voar e pode nadar.
+estender comportamentos de varias classes.
+
+classe implementa comando: uma unica regra de negocio.
+Comando -> 1 unica intenção -> uma unica função
+
+RealizarPix -> Comando Class abstract
+
+class RealizarPix implements Comando{
+    public void executar(){
+        System.out.println("Realizando Pix");
+    }
+
+restringe a pessoa a só fazer um metodo de pix, nao mais que isso.
+
+RealizarPix -> Comando interface
+
+class RealizarPix implements Comando, Boleto{
+    public void executar(){
+        System.out.println("Realizando Pix");
+    }
+    public void acao(){
+        System.out.println("Realizando boletos");
+    }
+
+Aqui já abre a opção de colocarem mais de 1 metodo pois pode implementar
+mais de 1 interface.
+Então nesse caso, se colocar Interface em Comando quebra a lógica de só 1 metodo
+e por isso é ideal usar classe abstrata que só pode herdar
+uma classe(Apenas comando).
+
+Multiplas heranças: Interface.
+Unica herança: Classe Abstrata.
+
+
+
+Atributos: Caracteristicas de um objeto, descrito em sua classe.
+A combinação dos valores dos atributos definem o estado do objeto.
+
+Representam Entidade Real: Abstração da realidade, trazer algo real para o código.
+No caso, o software da empresa resolve algum problema na vida real,
+precisa de um motivo para existir, algum problema para resolver.
+
+Classe utilitaria: Nem todas classes representam o mundo real, essa é referente a calculos, processamentos etc.
+
+Abstracao: É pegar oque é da vida real e transformar em código.
+
+
+P I L A R E S   D A   P R O G R A M A Ç Ã O   O R I E N T A D A   A   O B J E T O S:
+
+Encapsulamento, Herança, Polimorfismo, Abstração
+
+
+-------------
+Encapsulamento: Proteger o estado de um objeto, escondendo os detalhes de implementação.
+--------------
+
+
+Herança: Reutilização de código, uma classe pode herdar atributos e métodos de outra.
+Interface é um tipo de herança
+Existem dois tipos, Herda o que deveria fazer mas cabe ao herdeiro implementar.
+no caso public class Pelicano implements Ave
+implements obriga a fazer exatamente o que está descrito no "contrato"
+Porque Ave não tem nenhum metodo pronto, então que implementar deve criar.
+
+Herança tradicional, além do que deveria fazer, como fazer.
+no caso public class Flamingo extends Pelicano
+porque não extends Ave? pois ave só tem a estrutura, é uma interface
+E na interface não existe oque fazer, não tem como extender de algo que não existe.
+Herança tradicional vai pegar o metodo pronto e só mudar oque precisa.
+daria para fazer extends pelicano pois ele fez o metodo da interface que estava vazio.
+então da para extends pelicano pois o metodo já existe.
+
+Quando extends? quando um mesmo comportamento eu quero
+que seja exatamente igual para as proximas classes, não repete codigo
+apenas coloca novos.
+
+Quando implements? quando um mesmo comportamento eu quero
+que seja diferente para as proximas classes
+
+pega de prova: extends Pombo, Flamingo
+Não pode, apenas extends uma classe, não pode extends duas.
+
+o implements deixa mais flexivel, pode implementar varias interfaces.
+pelicano implements Ave, SerVivo.
+
+Herança, se o pai for alterado, todos os filhos são alterados
+Então em um exemplo real, tem que ser um código muito bem pensado.
+Cadastro de clientes, cadastro de funcionarios por exemplo.
+
+Terceiro tipo de herança
+De classe para classe. sem contratos
+
+----------------------
+Polimorfismo: Capacidade de um objeto poder ser referenciado de várias formas,
+ou seja, um objeto de uma subclasse pode ser tratado
+como um objeto de uma superclasse.
+
+Não tem polimorfismo sem herança. varias formas
+Uma filha ser tratada como pai. sem distinção
+
+------------------------
+Abstração.
+
+
+Record já vem implementado toString.

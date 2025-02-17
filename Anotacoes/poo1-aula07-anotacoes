@@ -1,0 +1,25 @@
+Maior inimigo de um software
+
+TEMPO -> MUDANÇAS -> COESAO / ESCALABILIDADE, NAO TER ACOPLAMENTO
+
+
+Nao podemos ser especificos demais
+Uma classe representa uma tabela.
+A classe animal seria a classe que vai representar o banco de dados
+Ou seja, ele tem que ter todas as informações que serão guardadas.
+
+E nos filhos podemos abstrair isso,
+
+TipoMamifero tipo -> objeto TipoMamifero  // mas no construtor espera String
+tipo.toString -> aqui na referencia do pai, super(tipo.toString,  converte objeto TipoMamifero.URSO para "URSO"
+
+para cadastrar outro animal, é apenas colocar la no enum, animal novo, canguru
+
+public enum TipoMamifero {
+    CAMELO,URSO,CACHORRO
+}
+
+public enum TipoMamifero {
+    CAMELO,URSO,CACHORRO, CANGURU
+}
+

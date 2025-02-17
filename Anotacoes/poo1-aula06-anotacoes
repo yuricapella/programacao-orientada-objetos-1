@@ -1,0 +1,74 @@
+Scanner entrada =
+
+var codigo1 =
+
+public abstract class BancoDeDados{
+    List<Pagamento> lotePagamentos = GeradorLotePagamentos.gerarLote(quantidade)
+    List<Recebimento> loteRecebimentos = List.of(); //lista vazia, apenas fazendo um exemplo
+
+    public static void salvarPagamento(Pagamento pagamento){
+        lotePagamentos.add(pagamento)
+    }
+
+    public static void salvarRecebimento(Recebimento recebimento){
+            loteRecebimentos.add(recebimento)
+    }
+
+    //Dois codigos fazendo a mesma coisa, é ideal fazer uma sobrecarga
+
+}
+
+public abstract class BancoDeDados{
+    List<Pagamento> lotePagamentos = GeradorLotePagamentos.gerarLote(quantidade)
+    List<Recebimento> loteRecebimentos = List.of(); //lista vazia, apenas fazendo um exemplo
+
+    public static void salvar(Pagamento pagamento){
+        lotePagamentos.add(pagamento)
+    }
+
+    public static void salvar(Recebimento recebimento){
+        loteRecebimentos.add(recebimento)
+    }
+
+}
+
+
+
+
+
+usar public static
+
+Singleton
+
+
+                                                            Escopo Macro
+    Arch/Design (Arquitetura)
+            ^
+            |
+    Design Patterns(Padrões de projetos)                          |
+            ^                                                     |
+            |                                                     |
+    Solid(Principios)                                             |
+                                                                  |
+    POO (Herança, Polimorfismo, abstracao, Encapsulamento)        |
+        ^                                                         |
+        |                                                         |
+    Java(Logica)                                                  |
+                                                            Escopo micro
+
+
+BANCO DE DADOS
+Relacional
+SQL
+Estruturado
+
+Não Relacional
+NoSQL
+
+Table Pagamento
+1 codigo
+2 beneficiario
+3 valor
+
+Tabela é igual a uma classe no java.
+

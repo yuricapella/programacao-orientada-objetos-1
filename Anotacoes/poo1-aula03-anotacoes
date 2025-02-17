@@ -1,0 +1,32 @@
+SOLID
+
+Single Responsability Principle
+Responsabilidade unica
+Faz uma coisa, coerencia
+Só muda por uma razão/contexto
+
+
+Open Close Principle
+As classes são fechadas para modificação e abertas para extensão
+
+
+Liskov Principle
+Um filho que não consegue substituir o pai, não deveria implementar o pai ou herdar
+
+
+Interface Segregation Principle
+Se uma classe não tem todos os comportamentos do pai, não deveria implementa-la e sim segregar.
+
+--------------
+
+
+Sobrescrita, é um metodo repetido com mesmos parametros
+Sobrecarga, é um metodo repetido com parametros diferentes.
+
+--------------
+
+uma classe filha é obrigada a implementar um metodo abstract do pai pois cabe aos filhos implementar.
+
+A nao ser que a filha vire abstract também, mas se virar, ela nao pode ser instanciada,
+logo não vai nem poder chamar, pois o java não pode trabalhar com algo que nao existe.
+Vai quebrar o codigo se ninguem implementar.

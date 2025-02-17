@@ -1,0 +1,7 @@
+De acordo com o diagrama,
+implementar as classes faltantes: CodigosEmAula.Caminhao, Onibus e GerenciadorDeAbastecimento.
+Seguindo os modelos ja feitos ate o momento em aula,
+respeitando heranca quando necessario, e polimorfismo.
+Gerar dados de forma dinamica de caminhao e onibus e ser tratado de forma unica dinamica
+igual carro e moto no abastecer e mover.
+Para a aula de segunda-feira!

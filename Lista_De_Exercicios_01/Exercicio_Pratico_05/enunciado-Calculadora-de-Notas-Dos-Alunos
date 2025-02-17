@@ -1,0 +1,12 @@
+Em uma escola de São Paulo,
+um dos professores responsáveis pelas aulas de informática decidiu automatizar as apurações de notas dos alunos.
+Para isso, ele precisa de uma ajuda extra na construção de algumas classes.
+
+Para ajudar o professor,
+construa um método chamado calcularMediaFinal que receba como parâmetro a matrícula do aluno (matricula),
+duas notas de provas (nota1 e nota2) e uma nota de trabalho (nota_trabalho) e calcule a média final do aluno.
+
+Observações:
+
+Utilize os mesmos nomes de parâmetros que estão entre parenteses na descrição do exercício.
+Para calcular a média, considere: somar todas as notas e dividir por três.

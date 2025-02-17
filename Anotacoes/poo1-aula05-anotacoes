@@ -1,0 +1,42 @@
+API / Microserviço
+
+Actor -> Front-end / web / mobile -> API / Controller -> Service -> Banco de dados, Repository
+
+------
+Para lançar uma exceção, tem que colocar throws na assinatura do metodo, para jogar ao usuario, pois nao faz sentido
+tratar o erro na propria função que diz o erro, se o usuario está digitando um erro, ele nao vai saber se o erro
+nao for jogado a ele.
+
+try{
+}catch{
+}catch{
+}catch{
+}catch{
+}catch{
+}
+
+Pode ter varios catchs, mas deve sempre tratar os especificos primeiro(Os filhos e pro final os pais) herança e polimorfismo
+
+Também pode usar duas exceções de uma vez
+
+catch(NumberFormatException | NullPointerException ex){
+}
+
+
+Da para fazer a propria exceção, criar outra classe e extends de Exception por exemplo, geralmente extends de RuntimeError
+
+public class PrecoUnitarioInvalidoException extends Exception{
+    public PrecoUnitarioInvalidoException(String mensagem) {
+            super(mensagem);
+    }
+}
+
+Serve para padronização do código, pois só de olhar o nome da exceção já sabe da onde vem o erro.
+Exceção de dominio. Onde classe produto possui precounitario e o proprio produto lança sua exceção.
+
+Mas isso precisa fazer muito sentido. regra de negocio forte, que quero saber de forma mais clara.
+Mas não se deve sair fazendo varias exceções.
+
+
+
+
